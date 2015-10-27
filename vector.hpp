@@ -72,8 +72,7 @@ class vector
             destroy(start_, finish_);
             deallocate(start_, capacity());
         }
-        void push_back(const_reference &c)
-        {
+        void push_back(const_reference &c){
             if (start_ == NULL){
                 start_ = allocate(1);
                 finish_ = start_;
@@ -171,13 +170,11 @@ class vector
             A_.construct(finish, c);
         }
     template <typename Integer>
-        void initialize_dispath(Integer count, Integer value, true_type)
-        {
+        void initialize_dispath(Integer count, Integer value, true_type){
             init(count, value);
         }
     template <typename InputIter>
-        void initialize_dispath(InputIter begin, InputIter end, false_type)
-        {
+        void initialize_dispath(InputIter begin, InputIter end, false_type){
             difference_type len = end - begin;
             start_ = allocate(len);
             std::uninitialized_copy(begin, end, start_);

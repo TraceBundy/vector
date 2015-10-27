@@ -12,8 +12,7 @@ class allocator
         typedef size_t size_type;
         allocator() {}
         ~allocator() {}
-        void* allocate(size_t n) throw (std::bad_alloc)
-        {
+        void* allocate(size_t n) throw (std::bad_alloc){
             if (n == 0) throw std::bad_alloc();
             return operator new (n);
         }

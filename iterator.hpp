@@ -35,9 +35,7 @@ struct _iterator <N*>
         typedef size_t size_type;
         typedef N value_type;
         typedef N* pointer;
-        // typedef const N * const_pointer;
         typedef N& reference;
-        // typedef N const& const_reference_type;
         typedef _iterator<pointer> self_type;
 
         _iterator():pos(NULL){}
@@ -65,9 +63,7 @@ struct _iterator <const N*>
         typedef size_t size_type;
         typedef N value_type;
         typedef const N* pointer;
-        // typedef N const * const_pointer;
         typedef const N& reference;
-        // typedef N const& const_reference_type;
         typedef _iterator<pointer> self_type;
 
         _iterator():pos(NULL){}
@@ -96,7 +92,7 @@ struct reverse_iterator
     typedef reverse_iterator<iterator> self_type;
 
     reverse_iterator(iterator &it):pos(it){}
-    // reverse_iterator(self_type const &it):pos(it.pos){}
+    reverse_iterator(self_type const &it):pos(it.pos){}
     reverse_iterator & operator++() { --pos; return *this; }
     reverse_iterator & operator--() { ++pos; return *this; }
     reference operator*(){ return *pos; }
